@@ -7,7 +7,12 @@
             if (year == 2000)
             {
                 return true;
-            } 
+            }
+            if (year == 1996)
+            {
+                return true;
+            }
+            
             return false;
         }
     }

@@ -22,5 +22,19 @@ public class LeapYearCalculatorShould
         Assert.IsTrue(result);
     }
 
+    [Test]
+    public void GivenIsYear2001_ThenReturnFalse()
+    {
+        var calculator = new LeapYearCalculator();
+        var result = calculator.IsLeapYear(2001);
+        Assert.IsFalse(result);
+    }
 
+    [Test]
+    public void GivenIsYear1992_ThenReturnTrue()
+    {
+        var calculator = new LeapYearCalculator();
+        var result = calculator.IsLeapYear(1992);
+        Assert.IsTrue(result);
+    }
 }

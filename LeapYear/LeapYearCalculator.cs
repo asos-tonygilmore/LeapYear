@@ -4,6 +4,11 @@
     {
         public bool IsLeapYear(int year)
         {
+            if (year % 4 == 0)
+            {
+                return true;
+            }
+/*
             if (year == 2000)
             {
                 return true;
@@ -12,6 +17,11 @@
             {
                 return true;
             }
+
+            if (year == 1992)
+            {
+                return true;
+            }*/
             
             return false;
         }

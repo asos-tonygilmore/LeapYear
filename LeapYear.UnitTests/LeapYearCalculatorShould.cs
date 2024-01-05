@@ -5,23 +5,6 @@ namespace Tests;
 
 public class LeapYearCalculatorShould
 {
-
-    [Test]
-    public void GivenIsYear2000_ThenReturnTrue()
-    {
-        var calculator = new LeapYearCalculator();
-        var result = calculator.IsLeapYear(2000);
-        Assert.IsTrue(result);
-    }
-
-    [Test]
-    public void GivenIsYear1996_ThenReturnTrue()
-    {
-        var calculator = new LeapYearCalculator();
-        var result = calculator.IsLeapYear(1996);
-        Assert.IsTrue(result);
-    }
-
     [Test]
     public void GivenIsYear2001_ThenReturnFalse()
     {
@@ -31,10 +14,20 @@ public class LeapYearCalculatorShould
     }
 
     [Test]
-    public void GivenIsYear1992_ThenReturnTrue()
+    public void GivenIsYear1900_ThenReturnFalse()
     {
         var calculator = new LeapYearCalculator();
-        var result = calculator.IsLeapYear(1992);
+        var result = calculator.IsLeapYear(1900);
+        Assert.IsFalse(result);
+    }
+
+    [TestCase(1992)]
+    [TestCase(2000)]
+    [TestCase(1996)]
+    public void GivenYearIsDivisibleByFour_ThenReturnTrue(int year)
+    {
+        var calculator = new LeapYearCalculator();
+        var result = calculator.IsLeapYear(year);
         Assert.IsTrue(result);
     }
 }

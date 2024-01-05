@@ -4,25 +4,18 @@
     {
         public bool IsLeapYear(int year)
         {
-            if (year % 4 == 0)
-            {
-                return true;
-            }
-/*
-            if (year == 2000)
-            {
-                return true;
-            }
-            if (year == 1996)
+            var isDivisibleByFour = year % 4 == 0;
+            var isDivisibleByOneHundred = year % 100 == 0;
+            var isDivisibleByFourHundred = year % 400 == 0;
+
+            var isNotDivisibleBy100_OrDivisibleBy400 = !isDivisibleByOneHundred || isDivisibleByFourHundred;
+            
+
+            if (isDivisibleByFour && isNotDivisibleBy100_OrDivisibleBy400)
             {
                 return true;
             }
 
-            if (year == 1992)
-            {
-                return true;
-            }*/
-            
             return false;
         }
     }

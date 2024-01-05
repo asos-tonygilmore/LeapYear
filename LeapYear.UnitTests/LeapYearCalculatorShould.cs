@@ -4,6 +4,8 @@ namespace LeapYear.UnitTests;
 
 public class LeapYearCalculatorShould
 {
+    //Individual test case for false -2001
+
     [Test]
     public void GivenIsYear2001_ThenReturnFalse()
     {
@@ -12,6 +14,8 @@ public class LeapYearCalculatorShould
         Assert.IsFalse(result);
     }
 
+    //Individual test case for false -1900
+
     [Test]
     public void GivenIsYear1900_ThenReturnFalse()
     {
@@ -19,6 +23,8 @@ public class LeapYearCalculatorShould
         var result = calculator.IsLeapYear(1900);
         Assert.IsFalse(result);
     }
+
+    //Test cases for true
 
     [TestCase(1992)]
     [TestCase(2000)]
@@ -31,6 +37,9 @@ public class LeapYearCalculatorShould
         var result = calculator.IsLeapYear(year);
         Assert.IsTrue(result);
     }
+
+
+    //Test cases for false
 
     [TestCase(1700)]
     [TestCase(1800)]
@@ -45,5 +54,20 @@ public class LeapYearCalculatorShould
         var calculator = new LeapYearCalculator();
         var result = calculator.IsLeapYear(year);
         Assert.IsFalse(result);
+    }
+
+    //Integrated test cases for both true and false
+
+    [TestCase(1992, true)]
+    [TestCase(2000, true)]
+    [TestCase(1996, true)]
+    [TestCase(1700, false)]
+    [TestCase(1800, false)]
+    [TestCase(1900, false)]
+    public void GivenIsLeapYear_ThenReturnTrue(int year, bool expectedYear)
+    {
+        var calculator = new LeapYearCalculator();
+        var result = calculator.IsLeapYear(year);
+        Assert.AreEqual(expectedYear, result);
     }
 }
